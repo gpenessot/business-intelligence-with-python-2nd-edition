@@ -27,7 +27,7 @@ dependencies = [
 # Installed on demand, chapter by chapter
 # Chapter 3 profiles the dataset with DuckDB SUMMARIZE, already available
 # through the main dependencies: no profiling library needed.
-quality = ["thefuzz>=0.22"]
+quality = ["skrub>=0.10"]
 stats = ["scikit-learn>=1.5", "statsmodels>=0.14"]
 dashboards = ["streamlit>=1.40", "plotly>=5.24"]
 orchestration = ["apache-airflow>=2.10"]
