@@ -17,8 +17,8 @@ Un corrigé n'est pas la seule réponse valable. Quand plusieurs approches se d�
 
 ## Avancement
 
-| Chapitre | État |
-|:---|:---|
-| 1 | à venir |
-| 2 | à venir |
-| 3 à 9 | à venir |
+| Chapitre | Énoncés | Corrigés |
+|:---|:---|:---|
+| 1 | disponibles | à venir |
+| 2 | disponibles | à venir |
+| 3 à 9 | à venir | à venir |
