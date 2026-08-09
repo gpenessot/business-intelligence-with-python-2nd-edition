@@ -1,0 +1,38 @@
+[project]
+name = "business-intelligence-with-python"
+version = "2.0.0"
+description = "Companion code for the book 'Business Intelligence with Python', 2nd edition (ENI Editions)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # Core analysis, chapters 1 to 4
+    "pandas>=3.0",
+    "matplotlib>=3.9",
+    "seaborn>=0.13",
+    # File formats, chapter 2
+    "openpyxl>=3.1",
+    "pyarrow>=17.0",
+    "lxml>=5.0",
+    # Databases and extraction, chapters 2 and 5
+    "sqlalchemy>=2.0",
+    "duckdb>=1.1",
+    "dlt[duckdb]>=1.0",
+    # APIs and scraping, chapter 2
+    "requests>=2.32",
+    "beautifulsoup4>=4.12",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+# Installed on demand, chapter by chapter
+# Chapter 3 profiles the dataset with DuckDB SUMMARIZE, already available
+# through the main dependencies: no profiling library needed.
+quality = ["thefuzz>=0.22"]
+stats = ["scikit-learn>=1.5", "statsmodels>=0.14"]
+dashboards = ["streamlit>=1.40", "plotly>=5.24"]
+orchestration = ["apache-airflow>=2.10"]
+
+[tool.uv]
+# This repo holds runnable scripts and exercise solutions, not a library:
+# there is nothing to build or import.
+package = false

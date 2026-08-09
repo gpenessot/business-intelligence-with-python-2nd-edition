@@ -1,0 +1,19 @@
+# Jeux de donnees telecharges ou generes (jamais versionnes)
+data/
+
+# Sorties des pipelines dlt du chapitre 2
+*.duckdb
+.dlt/
+
+# Environnements et secrets
+.venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
