@@ -31,14 +31,22 @@ cd business-intelligence-with-python-2nd-edition
 uv sync
 ```
 
-Téléchargez ensuite le jeu de données, puis générez les fichiers dérivés utilisés par le chapitre 2 :
+Téléchargez ensuite le jeu de données, puis générez les fichiers dérivés utilisés par les chapitres 2 à 4 :
 
 ```bash
 uv run python scripts/prepare_dataset.py
 uv run python scripts/build_chapter2_sources.py
+uv run python scripts/build_chapter3_sources.py
+uv run python scripts/build_chapter4_sources.py
 ```
 
-Le premier script télécharge environ 45 Mo depuis le dépôt UCI et met le fichier source en cache : les exécutions suivantes ne retéléchargent rien. Comptez au total quelques minutes et environ 335 Mo sur votre disque. Le dossier `data/` n'est jamais versionné.
+Le premier script télécharge environ 45 Mo depuis le dépôt UCI et met le fichier source en cache : les exécutions suivantes ne retéléchargent rien. Comptez au total quelques minutes et environ 340 Mo sur votre disque. Le dossier `data/` n'est jamais versionné.
+
+Le chapitre 4 utilise en plus un jeu de données extérieur, la seule exception du livre : une véritable expérience d'A/B testing publicitaire, qu'un historique de ventes ne peut pas fournir. Son téléchargement ne demande aucun compte Kaggle :
+
+```bash
+uv run --with kagglehub python scripts/download_marketing_ab.py
+```
 
 ## Structure du dépôt
 
@@ -69,6 +77,22 @@ data/         créé par les scripts, ignoré par Git
 | `data/raw/products.xml` | 2.1.4, catalogue produits |
 | `data/processed/sales.parquet` | 2.1.5 |
 | `data/raw/sales.db` | 2.2.4 et 2.6.1, base SQLite |
+
+`build_chapter3_sources.py` produit les deux référentiels du chapitre 3, calculés depuis les ventes réelles :
+
+| Fichier | Section |
+|:---|:---|
+| `data/raw/product_catalog.csv` | 3.3.3, coût d'achat et fournisseur par référence |
+| `data/raw/budget_2025.xlsx` | 3.5.3, objectif de chiffre d'affaires par catégorie et par mois |
+
+`build_chapter4_sources.py` produit les trois fichiers de navigation et d'acquisition du chapitre 4. Ceux-là sont **simulés**, faute de pouvoir les dériver d'un historique de ventes, mais calibrés sur lui : le nombre de visiteurs découle des acheteurs réels de chaque mois, la dépense des nouveaux clients réels, et l'étape d'achat de l'entonnoir tombe sur les identifiants des clients qui ont réellement commandé en novembre 2025.
+
+| Fichier | Section |
+|:---|:---|
+| `data/raw/monthly_traffic.csv` | 4.3.1.2, visiteurs par mois |
+| `data/raw/marketing_spend.csv` | 4.3.1.3, dépense par mois et par canal |
+| `data/raw/web_events.csv` | 4.3.6, événements de navigation d'un mois |
+| `data/raw/marketing_ab.csv` | 4.5, expérience A/B réelle, via `download_marketing_ab.py` |
 
 ## Versions
 
