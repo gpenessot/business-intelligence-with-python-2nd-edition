@@ -94,6 +94,14 @@ data/         créé par les scripts, ignoré par Git
 | `data/raw/web_events.csv` | 4.3.6, événements de navigation d'un mois |
 | `data/raw/marketing_ab.csv` | 4.5, expérience A/B réelle, via `download_marketing_ab.py` |
 
+`generate_daily_delta.py` prolonge enfin l'historique, qui s'arrête au 5 décembre 2025. Le chapitre 5 en a besoin pour montrer le chargement incrémental d'un entrepôt : une base analytique n'est jamais finie, elle reçoit un lot chaque nuit.
+
+```bash
+uv run python scripts/generate_daily_delta.py --days 3
+```
+
+Chaque fichier `data/incoming/sales_AAAA-MM-JJ.csv` a les huit colonnes du fichier source et contient volontairement des lignes en retard, des annulations et, de temps à autre, un client qui a changé de pays. Le générateur est déterministe pour une date donnée : relancé, il réécrit le même fichier, ce dont la section 5.10.5 se sert pour démontrer l'idempotence du chargement.
+
 ## Versions
 
 Le code est écrit et testé pour **Python 3.12 ou supérieur** et **pandas 3**. Il fonctionne avec pandas 2, à deux détails d'affichage près que le livre signale au fil du texte, notamment le type `str` qui s'affichait `object`.
