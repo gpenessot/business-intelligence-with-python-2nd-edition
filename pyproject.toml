@@ -33,8 +33,11 @@ dependencies = [
 # through the main dependencies: no profiling library needed.
 quality = ["skrub>=0.10"]
 stats = ["scikit-learn>=1.5", "statsmodels>=0.14"]
-dashboards = ["streamlit>=1.40", "plotly>=6.0"]
+# Chapter 8 needs streamlit>=1.60 for the bundled agent skills, and >=1.49
+# for width="stretch", which replaced the removed use_container_width.
+dashboards = ["streamlit>=1.60", "plotly>=6.0"]
 orchestration = ["apache-airflow>=3.3", "apache-airflow-providers-standard>=1.17"]
+reports = ["jupyter>=1.1", "papermill>=2.7", "nbconvert>=7.16"]
 
 [tool.uv]
 # This repo holds runnable scripts and exercise solutions, not a library:
