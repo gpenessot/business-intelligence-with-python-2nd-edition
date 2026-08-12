@@ -9,6 +9,8 @@ dependencies = [
     "pandas>=3.0",
     "matplotlib>=3.9",
     "seaborn>=0.13",
+    # Spearman correlations (chapters 4 and 7) and seaborn density plots
+    "scipy>=1.14",
     # File formats, chapter 2
     "openpyxl>=3.1",
     "pyarrow>=17.0",
@@ -31,8 +33,8 @@ dependencies = [
 # through the main dependencies: no profiling library needed.
 quality = ["skrub>=0.10"]
 stats = ["scikit-learn>=1.5", "statsmodels>=0.14"]
-dashboards = ["streamlit>=1.40", "plotly>=5.24"]
-orchestration = ["apache-airflow>=2.10"]
+dashboards = ["streamlit>=1.40", "plotly>=6.0"]
+orchestration = ["apache-airflow>=3.3", "apache-airflow-providers-standard>=1.17"]
 
 [tool.uv]
 # This repo holds runnable scripts and exercise solutions, not a library:
