@@ -38,6 +38,9 @@ stats = ["scikit-learn>=1.5", "statsmodels>=0.14"]
 dashboards = ["streamlit>=1.60", "plotly>=6.0"]
 orchestration = ["apache-airflow>=3.3", "apache-airflow-providers-standard>=1.17"]
 reports = ["jupyter>=1.1", "papermill>=2.7", "nbconvert>=7.16"]
+# Chapter 9: synthetic data, reversible encryption, dependency audit.
+# boto3 is only needed to run the Secrets Manager example against a real account.
+compliance = ["faker>=40.0", "cryptography>=45.0", "pip-audit>=2.7"]
 
 [tool.uv]
 # This repo holds runnable scripts and exercise solutions, not a library:
